@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Stretch Project</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+<script src="jquery.js"></script>
+<script>
+    $( document ).ready(function() {
+        barChart();
+
+        $(window).resize(function(){
+            barChart();
+        });
+
+        function barChart(){
+            $('.bar-chart').find('.progress').each(function(){
+                var itemProgress = $(this),
+                    itemProgressWidth = $(this).parent().width() * ($(this).data('percent') / 100);
+                itemProgress.css('width', itemProgressWidth);
+            });
+        }
+    });
+</script>
+<div class="container">
+    <h2>Levels of Expertise</h2>
+    <div class="bar-chart">
+        <!-- legend label -->
+        <div class="legend">
+            <div class="label">
+                <h4>Beginner</h4>
+            </div>
+            <div class="label">
+                <h4>Intermediate</h4>
+            </div>
+            <div class="label">
+                <h4>Proficient</h4>
+            </div>
+            <div class="label last">
+                <h4>Expert</h4>
+            </div>
+        </div>
+
+        <!-- bars -->
+        <div class="chart clearfix">
+            <div class="item">
+                <div class="bar">
+                    <span class="percent">85%</span>
+
+                    <div class="progress" data-percent="85">
+                        <span class="title">PHP KNOWLEDGE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="bar">
+                    <span class="percent">68%</span>
+
+                    <div class="progress" data-percent="68">
+                        <span class="title">MySQL KNOWLEDGE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="bar">
+                    <span class="percent">59%</span>
+
+                    <div class="progress" data-percent="59">
+                        <span class="title">JavaScript KNOWLEDGE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="bar">
+                    <span class="percent">91%</span>
+
+                    <div class="progress" data-percent="91">
+                        <span class="title">HTML&CSS KNOWLEDGE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
